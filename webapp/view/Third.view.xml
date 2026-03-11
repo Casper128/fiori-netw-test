@@ -1,0 +1,55 @@
+<mvc:View controllerName="ZPRUEBA_01.controller.ThirdDocumentList" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="Nivel 1: Documentos">
+		<content>
+			<Toolbar>
+				<Title text="Filtrar por fecha" />
+				<DatePicker
+					id="startDateFilter"
+					value="{dateFilter>/startDate}"
+					valueFormat="yyyy-MM-dd"
+					displayFormat="dd/MM/yyyy"
+					placeholder="Desde"
+					width="150px" />
+				<DatePicker
+					id="endDateFilter"
+					value="{dateFilter>/endDate}"
+					valueFormat="yyyy-MM-dd"
+					displayFormat="dd/MM/yyyy"
+					placeholder="Hasta"
+					width="150px" />
+				<ToolbarSpacer />
+				<Button
+					text="Aplicar filtro"
+					icon="sap-icon://filter"
+					type="Emphasized"
+					press="onApplyDateFilter" />
+			</Toolbar>
+			<List
+				id="documentList"
+				headerText="Documentos"
+				items="{
+					path: 'mapped>/entries',
+					sorter: {
+						path: 'documentNumber',
+						descending: false,
+						group: true
+					}
+				}"
+				mode="SingleSelectMaster"
+				selectionChange="onDocumentSelect">
+				<StandardListItem
+					title="{mapped>documentNumber}"
+					description="Cliente: {mapped>customerId}"
+					info="{path: 'mapped>createdAt', type: 'sap.ui.model.type.Date'}"
+					type="Navigation" />
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentMiddle>
+					<Button text="Volver" press="onNavBack" />
+				</contentMiddle>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

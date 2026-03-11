@@ -7,12 +7,13 @@
 
 		<title>ZPRUEBA_01</title>
 
+		<!-- bootstrap UI5 desde CDN para evitar 404 locales -->
 		<script id="sap-ui-bootstrap"
 			src="../../resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_belize"
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"ZPRUEBA_01ZPRUEBA_01": ""}'>
+			data-sap-ui-resourceroots='{"ZPRUEBA_01": ""}'>
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -22,7 +23,7 @@
 				new sap.m.Shell({
 					app: new sap.ui.core.ComponentContainer({
 						height : "100%",
-						name : "ZPRUEBA_01ZPRUEBA_01"
+						name : "ZPRUEBA_01"
 					})
 				}).placeAt("content");
 			});

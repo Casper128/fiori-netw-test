@@ -1,46 +1,82 @@
 {
 	"_version": "1.7.0",
 	"sap.app": {
-		"id": "ZPRUEBA_01ZPRUEBA_01",
+		"id": "ZPRUEBA_01",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
-		}
+		"dataSources": {
+			"ZEXAMEN_DAO_SRV": {
+				"uri": "/sap/opu/odata/sap/ZEXAMEN_DAO_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion"	: "2.0",
+					"useBatch": false
+				}
+			}
+		},
+		"title": "Sap ui 5 practice"
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
-		"icons": {
-			"icon": "",
-			"favIcon": "",
-			"phone": "",
-			"phone@2": "",
-			"tablet": "",
-			"tablet@2": ""
-		},
 		"deviceTypes": {
 			"desktop": true,
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
-
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "ZPRUEBA_01ZPRUEBA_01.view.Main",
+			"viewName": "ZPRUEBA_01.view.Main",
 			"type": "XML"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ZPRUEBA_01.view",
+				"controlId": "app",
+				"controlAggregation": "pages"
+			},
+			"routes": [{
+				"name": "main",
+				"pattern": "",
+				"target": "Main",
+				"titleTarget": "Main"
+			}, {
+				"name": "second",
+				"pattern": "second",
+				"target": "Second",
+				"titleTarget": "Second"
+			}, {
+				"name": "third",
+				"pattern": "third",
+				"target": "Third",
+				"titleTarget": "Third"
+			}, {
+				"name": "thirdDetail",
+				"pattern": "third/{document}",
+				"target": "ThirdDetail",
+				"titleTarget": "ThirdDetail"
+			}],
+			"targets": {
+				"Main": {
+					"viewName": "Main"
+				},
+				"Second": {
+					"viewName": "Second"
+				},
+				"ThirdDocumentList": {
+					"viewName": "Third"
+				},
+				"ThirdDetail": {
+					"viewName": "ThirdDetail"
+				}
+			}
 		},
 		"dependencies": {
 			"minUI5Version": "1.30.0",
@@ -62,14 +98,27 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "ZPRUEBA_01ZPRUEBA_01.i18n.i18n"
+					"bundleName": "ZPRUEBA_01.i18n.i18n"
 				}
+			},
+			"dao": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"dataSource": "ZEXAMEN_DAO_SRV",
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline"
+				},
+				"preload": true
 			}
 		},
 		"resources": {
 			"css": [{
 				"uri": "css/style.css"
 			}]
+		},
+		"contentDensities": {
+			"compact": false,
+			"cozy": false
 		}
 	}
 }

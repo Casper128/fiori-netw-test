@@ -1,0 +1,40 @@
+<mvc:View controllerName="ZPRUEBA_01.controller.ThirdDetail" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="Nivel 3 • Detalle">
+		<headerContent>
+			<Toolbar>
+				<Button
+					icon="sap-icon://navigation-left-arrow"
+					type="Transparent"
+					press="onLevel3Back" />
+				<Title id="level3Title" text="Nivel 3 • Detalle del ítem" />
+			</Toolbar>
+		</headerContent>
+		<content>
+			<Panel id="detailPanel" headerText="Detalle del ítem" width="100%">
+				<content>
+					<VBox renderType="Bare" class="sapUiSmallMargin">
+						<Input value="{detail>documentNumber}" placeholder="Documento" />
+						<Input value="{detail>itemNumber}" placeholder="Posición" />
+						<Input value="{detail>customerId}" placeholder="Cliente" />
+						<Input value="{detail>materialNumber}" placeholder="Material" />
+						<Input value="{detail>description}" placeholder="Descripción" />
+						<Input value="{detail>quantity}" placeholder="Cantidad" />
+						<Input value="{detail>quantityUnit}" placeholder="Unidad" />
+						<Input value="{detail>netValue}" placeholder="Valor Neto" />
+						<Input value="{detail>currency}" placeholder="Moneda" />
+						<Input value="{detail>salesOrg}" placeholder="Org. ventas" />
+						<Input value="{detail>plant}" placeholder="Centro" />
+						<Input value="{detail>createdAt}" placeholder="Creado" />
+					</VBox>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Toolbar>
+				<Button text="Crear" icon="sap-icon://add" press="onCreateEntry" />
+				<Button text="Actualizar" icon="sap-icon://save" press="onUpdateEntry" />
+				<Button text="Eliminar" icon="sap-icon://delete" type="Reject" press="onDeleteEntry" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

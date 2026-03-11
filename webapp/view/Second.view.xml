@@ -1,0 +1,12 @@
+<mvc:View
+    controllerName="ZPRUEBA_01.controller.Second"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Second Page">
+        <content>
+            <Text text="You are on the second route." />
+            <Button text="Go back" press="onNavBack" />
+            <Button text="Ver registros del OData" press="onNavToThird" />
+        </content>
+    </Page>
+</mvc:View>

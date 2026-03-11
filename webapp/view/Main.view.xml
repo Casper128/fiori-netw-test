@@ -1,9 +1,14 @@
-<mvc:View controllerName="ZPRUEBA_01ZPRUEBA_01.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true" xmlns="sap.m">
-	<App>
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:control="ZPRUEBA_01.control" controllerName="ZPRUEBA_01.controller.Main" displayBlock="true">
+	<App id="app">
 		<pages>
 			<Page title="{i18n>title}">
-				<content></content>
+				<content>
+                    <Label text="Product" labelFor="productInput"/>
+                    <Input id="productInput" placeholder="Enter product" value="{path: '/product', mode: 'TwoWay'}"/>
+                    <Text text="{/product}"/>
+                    <Button text="Go to second" press="onNavToSecond" activeIcon="sap-icon://accept" icon="sap-icon://activate"/>
+                    <control:MyButton text="Custom click" myPress="onMyPressed"/>
+                </content>
 			</Page>
 		</pages>
 	</App>
